@@ -1,7 +1,6 @@
 package com.devops.lab;
 
 public class Calculator {
-    // DO NOT FORGET THIS FOR THE EXAM
     public static void main(String[] args) {
         System.out.println("Running the Calculator!");
     }
