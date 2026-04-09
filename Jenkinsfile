@@ -5,22 +5,22 @@ pipeline {
         maven 'Maven3'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm 
-            }
-        }
-        stage('Build & Test with Coverage') {
+        stage('Build & Test') {
             steps {
                 bat 'mvn clean test' 
+            }
+        }
+        stage('Docker Build & Run') {
+            steps {
+                bat 'docker build -t calculator-app .'
+                bat 'docker run --rm calculator-app'
             }
         }
     }
     post {
         always {
             junit '**/target/surefire-reports/*.xml'
-            // This line archives the JaCoCo HTML reports [cite: 353]
-            archiveArtifacts artifacts: 'target/site/jacoco/**', fingerprint: true 
+            archiveArtifacts artifacts: 'target/site/jacoco/**', fingerprint: true
         }
     }
 }
