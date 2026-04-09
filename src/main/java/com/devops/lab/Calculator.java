@@ -1,11 +1,11 @@
 package com.devops.lab;
 
 public class Calculator {
-    public int add(int a, int b) {
-        return a + b;
+    // DO NOT FORGET THIS FOR THE EXAM
+    public static void main(String[] args) {
+        System.out.println("Docker is running the Calculator!");
     }
-
-    public int multiply(int a, int b) {
-        return a * b;
-    }
+    
+    public int multiply(int a, int b) { return a * b; }
+    public int add(int a, int b) { return a + b; }
 }
