@@ -10,12 +10,6 @@ pipeline {
                 bat 'mvn clean test' 
             }
         }
-        stage('Docker Build & Run') {
-            steps {
-                bat 'docker build -t calculator-app .'
-                bat 'docker run --rm calculator-app'
-            }
-        }
     }
     post {
         always {
